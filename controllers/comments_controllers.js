@@ -2,6 +2,7 @@ const Comment = require('../models/comment');
 const Post = require('../models/post');
 
 module.exports.create = function(req, res){
+ 
     Post.findById(req.body.post, function(err, post){
     
         if(post){
@@ -10,8 +11,8 @@ module.exports.create = function(req, res){
                 post: req.body.post,
                 user: req.user._id
             }, function(err, comment){
-                // handle error
-
+                // handle error 
+               
                 post.comments.push(comment);
                 post.save();
                 
