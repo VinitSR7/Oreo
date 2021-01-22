@@ -1,0 +1,26 @@
+#home-container{
+     display: flex;
+     #page-links{
+        width: 20%;
+        padding: 10px;
+        // border-right: 2px solid lightgrey;
+        height: 100%;
+
+        text-align: center;
+     }
+     #feed-posts{
+        width: 50%;
+        padding: 10px;
+        border-left: 2px solid lightgrey;
+        border-right: 2px solid lightgrey;
+        height: 100%;
+        text-align: center;
+     }
+     #user-friends{
+         width:30%;
+         padding: 10px;
+        //  border-left: 2px solid lightgrey;
+         height: 100%;
+         text-align: center;
+    }
+}
