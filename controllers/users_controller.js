@@ -69,12 +69,13 @@ module.exports.create = function(req, res){
 module.exports.createSession = function(req, res){
     // TODO 
     User.findOne({email: req.body.email}, function(err, user){
+        req.flash('success', 'Logged in Successfully!');
         return res.redirect('/users/profile/'+user.id);
     });
 }
 
 module.exports.destroySession = function(req, res){
     req.logout();
-
+    req.flash('success', 'You have logged out!');
     return res.redirect('/users/sign-in')
 }
