@@ -31,9 +31,10 @@ module.exports.signUp = function(req, res){
 // render the sign in page
 module.exports.signIn = function(req, res){
     if(req.isAuthenticated()){
-        User.findOne({email: req.body.email}, function(err, user){
-            return res.redirect('/users/profile/'+user.id);
-        });
+        return res.redirect('/');
+        // User.findOne({email: req.body.email}, function(err, user){
+        //     return res.redirect('/users/profile/'+user.id);
+        // });
     
     }
     return res.render('user_sign_in', {
@@ -70,7 +71,8 @@ module.exports.createSession = function(req, res){
     // TODO 
     User.findOne({email: req.body.email}, function(err, user){
         req.flash('success', 'Logged in Successfully!');
-        return res.redirect('/users/profile/'+user.id);
+        return res.redirect('/');
+        // return res.redirect('/users/profile/'+user.id);
     });
 }
 
