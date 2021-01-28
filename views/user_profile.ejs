@@ -1,21 +1,24 @@
-        <link rel="stylesheet" href="/css/user_profile.css">
-        <h1>
-            Codeial / Profile Page
-        </h1>
+<link rel="stylesheet" href="/css/user_profile.css">
 
-        <% if(user.id == profile_user.id){ %>
-            <!-- Show edit options -->
-            <form action="/users/update/<%= profile_user.id%>" enctype = "multipart/form-data" method="post">
-                <input type="text" name="name" placeholder="Your Name" value="<%=profile_user.name%>" required>
-                <input type="email" name="email" placeholder="Your Email" value="<%=profile_user.email%>" required>
-                <input type="file" name="avatar" placeholder="Profile Picture">
-                <input type="submit" value="Update">
-                
-            </form>
-        <% }else{ %>
-            <!-- Show only the details -->
+<h1>
+    Codeial / Profile Page
+</h1>
+<div>
+    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+</div>
+<% if(user.id == profile_user.id){ %>
+    <!-- Show edit options -->
+    <form action="/users/update/<%= profile_user.id%>" enctype = "multipart/form-data" method="post">
+        <input type="text" name="name" placeholder="Your Name" value="<%=profile_user.name%>" required>
+        <input type="email" name="email" placeholder="Your Email" value="<%=profile_user.email%>" required>
+        <input type="file" name="avatar" placeholder="Profile Picture">
+        <input type="submit" value="Update">
+        
+    </form>
+<% }else{ %>
+    <!-- Show only the details -->
 
-            <p><%= profile_user.name %></p>
-            <p><%= profile_user.email %></p>
+    <p><%= profile_user.name %></p>
+    <p><%= profile_user.email %></p>
 
-        <%}%>
+<%}%>
