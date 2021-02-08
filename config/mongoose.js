@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-
-mongoose.connect('mongodb://localhost/oreo_development');
+const env = require('./enviornment');
+mongoose.connect(`mongodb://localhost/${env.db}`);
 
 const db = mongoose.connection;
 
