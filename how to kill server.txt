@@ -1,0 +1,5 @@
+sudo pkill node
+
+
+lsof -i tcp:5000
+kill -9 

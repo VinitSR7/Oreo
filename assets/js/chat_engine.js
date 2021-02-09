@@ -21,7 +21,7 @@ class ChatEngine{
 
             self.socket.emit('join_room', {
                 user_email: self.userEmail,
-                chatroom: 'codeial'
+                chatroom: 'oreo'
             });
 
             self.socket.on('user_joined', function(data){
