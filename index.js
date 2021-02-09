@@ -3,6 +3,7 @@ const env = require('./config/enviornment');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const app = express(); 
+require('./config/view-helpers')(app);
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -37,7 +38,7 @@ if (env.name == 'development'){
 }
 app.use(express.urlencoded())
 app.use(cookieParser());
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 // make the uploads file available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
 

@@ -14,7 +14,7 @@ const accessLogStream = rfs('access.log', {
 
 const development={
     name: 'development',
-    asset_path: '/assets',
+    asset_path: './assets',
     session_cookie_key: 'xyzuvw',
     db: 'oreo_development',
     smtp: {
@@ -39,7 +39,7 @@ const development={
 
 const production={
     name: 'production',
-    asset_path: process.env.OREO_ASSET_PATH,
+    asset_path: '.'+process.env.OREO_ASSET_PATH,
     session_cookie_key: process.env.OREO_SESSION_COOKIE,
     db: process.env.OREO_DB,
     smtp: {
@@ -60,6 +60,5 @@ const production={
         mode: 'combined',
         options: {stream: accessLogStream}
     }
-}
- 
+} 
 module.exports = eval(process.env.OREO_ENVIRONMENT) == undefined ? development : eval(process.env.OREO_ENVIRONMENT);
